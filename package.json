@@ -1,0 +1,27 @@
+{
+  "name": "nn-nuxt",
+  "version": "1.0.0",
+  "description": "Nick Nuxt Portfolio",
+  "author": "Nick Niles",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/bulma": "^1.2.1",
+    "@nuxtjs/style-resources": "^0.1.2",
+    "cross-env": "^5.2.0",
+    "node-sass": "^4.12.0",
+    "nuxt": "^2.4.0",
+    "pug": "^2.0.3",
+    "pug-plain-loader": "^1.0.0",
+    "sass-loader": "^7.1.0",
+    "sass-resources-loader": "^2.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}
