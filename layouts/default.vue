@@ -1,7 +1,7 @@
 <template lang="pug">
   div
-    Logo
     nuxt
+    Logo
 </template>
 
 <script>
