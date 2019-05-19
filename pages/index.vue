@@ -9,16 +9,15 @@
         .intro-card__text
           h3 {{content.hello}}
           p {{content.intro}} 
-    .parallax-child party people
     section(v-for="feature, index in features")
       .feature-card
         .feature-card__media
-          .feature-card__media-content
+          component(:is="feature.component")
         .feature-card__text
           h3.is-size-3.feature-card__title {{feature.title}}
           p.is-size-3.feature-card__copy {{feature.copy}}
     Footer
-    Chart
+    //- Chart
       
 </template>
 
@@ -194,12 +193,12 @@ h4 {
 
   &__media {
     width: 100%;
-    max-width: 25rem;
-    height: 19rem;
+    // max-width: 25rem;
+    // height: 19rem;
     border-radius: .5rem;
-    box-shadow: $box-shadow;
+    // box-shadow: $box-shadow;
     margin-bottom: 2rem;
-    overflow: hidden;
+    // overflow: hidden;
   }
 
   &__media-content {
