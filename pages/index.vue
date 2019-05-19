@@ -3,8 +3,6 @@
     .background(:style="{background: `linear-gradient(73.55deg, ${color1}, ${color2})`}")
     section.jumbotron
       h1(v-in-viewport) {{content.headline}}
-      h2 happy pants
-      h4 party pants
     section.intro 
       .intro-card(v-in-viewport)
         img(src="img/nick_niles_beard.jpg")
@@ -20,11 +18,13 @@
           h3.is-size-3.feature-card__title {{feature.title}}
           p.is-size-3.feature-card__copy {{feature.copy}}
     Footer
+    Chart
       
 </template>
 
 <script>
 import Footer from '~/components/Footer'
+import Chart from '~/components/RandomChart'
 import features from '~/assets/data/features.yml'
 import content from '~/assets/data/content.yml'
 import chroma from 'chroma-js'
@@ -40,7 +40,8 @@ export default {
     }
   },
   components: {
-    Footer
+    Footer,
+    Chart
   },
   methods: {
     increaseL() {
@@ -61,15 +62,15 @@ $rounded-corner: 6px;
 $box-shadow: 0 5px 20px rgba(0,0,0,.15);
 $swivel-starting-point: rotateX(5deg) translateZ(10rem) scale(.5);
 
-.container {
-  perspective: 1px;
-  perspective-origin: 0 0;
-}
+// .container {
+//   perspective: 1px;
+//   perspective-origin: 0 0;
+// }
 
-.parallax-child {
-  transform-origin: 0 0;
-  transform: translateZ(-2px) scale(3);
-}
+// .parallax-child {
+//   transform-origin: 0 0;
+//   transform: translateZ(-2px) scale(3);
+// }
 
 section {
   width: 100%;
