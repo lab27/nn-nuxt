@@ -1,5 +1,6 @@
 <template lang="pug">
   .weather
+    h3 Average Yearly Weather In Places I've Lived
     line-chart(:chart-data="datacollection" :options="options" ref="chart")
     //- button(@click="fillData()") Randomize
 </template>
@@ -15,6 +16,14 @@
       return {
         apiKey: 'e8c6b8a55b6673e312b97ca87cb3b487',
         options: {
+          title: {
+            display: false,
+            text: ["Average Yearly Weather", "In Places I've Lived"],
+            fontSize: 21,
+            fontStyle: 'bold',
+            lineHeight: 1.2,
+            position: 'top'
+          },
           maintainAspectRatio: false,
           legend: {
             display: true,
@@ -22,6 +31,8 @@
             // position: 'bottom',
             fullWidth: true,
             labels: {
+              padding: 40,
+              boxWidth: 10,
               filter: function(item, chart) {
                     // Logic to remove a particular legend item goes here
                     console.log('item', item)
@@ -29,7 +40,7 @@
                     // return !item.text.includes('label to remove');
                 },
               fontStyle: 'bold',
-              fontFamilt: 'georgia'
+              // fontFamily: 'georgia'
             }
           },
           elements: {
@@ -41,18 +52,24 @@
             } 
           },
           layout: {
-            // padding: 16
+            padding: {
+              top: 0
+            }
           },
           // showLines: false,
         scales: {
             xAxes: [{
               display: true,
               gridLines: {
-                display: false
+                color: 'rgba(0,0,0,.05)'
               },
               scaleLabel: {
                 display: true,
-                labelString: 'Month'
+                labelString: 'Month',
+                fontStyle: 'bold',
+                padding: {
+                  top: 16
+                }
               }
             }],
             yAxes: [{
@@ -67,7 +84,8 @@
               },
               scaleLabel: {
                 display: true,
-                labelString: '°C'
+                labelString: '°C',
+                fontStyle: 'bold'
               }
             }]
           }
@@ -101,7 +119,7 @@
     methods: {
       fillData () {
         this.datacollection = {
-          labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
           datasets: [
             {
               label: 'Sacramento',
