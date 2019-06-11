@@ -41,7 +41,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    { src: '~/plugins/in-viewport-directive.js', ssr: false }
+    { src: '~/plugins/in-viewport-directive.js', ssr: false },
+    '~/plugins/typed'
   ],
 
   /*

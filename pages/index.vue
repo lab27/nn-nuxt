@@ -2,7 +2,13 @@
   div.container
     .background(:style="{background: `linear-gradient(73.55deg, ${color1}, ${color2})`}")
     section.jumbotron
-      h1(v-in-viewport) {{content.headline}}
+      //- h1(v-in-viewport) {{content.headline}}
+      vue-typed-js(:strings="currentSentence" :key="sentenceCounter")
+        h1
+          button(@click="newSentence") R
+          span(class="typing")
+      
+
     section.intro 
       .intro-card(v-in-viewport)
         img(src="img/nick_niles_beard.jpg")
@@ -27,6 +33,7 @@ import Chart from '~/components/RandomChart'
 import features from '~/assets/data/features.yml'
 import content from '~/assets/data/content.yml'
 import chroma from 'chroma-js'
+import Typed from 'typed.js'
 
 export default {
   data () {
@@ -35,7 +42,18 @@ export default {
       content: content,
       color1: '#bfeaff',
       color2: '#d4ffd8',
-      colorSpeed: 100
+      colorSpeed: 100,
+      sentences: [
+        'Do Better Web',
+        'All-wwwright!',
+        'Peace, Love, Web'
+      ],
+      sentenceCounter: 0
+    }
+  },
+  computed: {
+    currentSentence() {
+      return [this.sentences[this.sentenceCounter]]
     }
   },
   components: {
@@ -46,6 +64,16 @@ export default {
     increaseL() {
       this.color1 = chroma(this.color1).set('lch.h', '+5')
       this.color2 = chroma(this.color2).set('lch.h', '+5')
+    },
+    newSentence() {
+      console.log('get new sentence')
+      if (this.sentenceCounter === this.sentences.length -1) {
+        console.log('counter, length', this.sentenceCounter, this.sentences.length)
+        this.sentenceCounter = 0
+      } else {
+        console.log('counter, length', this.sentenceCounter, this.sentences.length)
+        this.sentenceCounter++
+      }
     }
   },
   mounted() {
@@ -127,9 +155,9 @@ section {
     font-weight: 700;
     letter-spacing: -.2rem;
     margin-top: -3.5vw;
-    height: 0;
+    // height: 0;
     overflow: hidden;
-    animation: blinkOn 2s cubic-bezier(0.075, 0.82, 0.165, 1) 1s forwards;
+    // animation: blinkOn 2s cubic-bezier(0.075, 0.82, 0.165, 1) 1s forwards;
   }
 
   h2 {
